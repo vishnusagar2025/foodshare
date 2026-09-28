@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoodShare</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>FoodShare</h1>
+  <p>Surplus food, claimed before it spoils.</p>
+  <nav>
+    <button data-tab="browse" class="on">Available food</button>
+    <button data-tab="donate">Donate</button>
+    <button data-tab="claims">Claims</button>
+    <button data-tab="impact">Impact</button>
+    <button data-tab="people">Donors and NGOs</button>
+  </nav>
+</header>
+<main>
+  <section id="browse" class="tab on">
+    <div class="bar">
+      <label>Claiming as <select id="ngoSel"></select></label>
+      <label>Sort by <select id="sortSel">
+        <option value="safeUntil,asc">Expires soonest</option>
+        <option value="createdAt,desc">Newest</option>
+        <option value="weightKg,desc">Heaviest</option>
+      </select></label>
+    </div>
+    <table id="availTable"></table>
+    <div class="bar pager"><button id="prev">Previous</button><span id="pageInfo"></span><button id="next">Next</button></div>
+  </section>
+
+  <section id="donate" class="tab">
+    <h2>List surplus food</h2>
+    <form id="listingForm">
+      <select id="donorSel" required></select>
+      <input name="foodName" placeholder="Food, e.g. Vegetable biryani" required>
+      <input name="foodType" list="types" placeholder="Type" required>
+      <datalist id="types"><option>Cooked meal</option><option>Bakery</option><option>Produce</option><option>Packaged</option></datalist>
+      <input name="quantity" type="number" min="1" placeholder="Servings / items" required>
+      <input name="weightKg" type="number" min="0.1" step="0.1" placeholder="Weight (kg)" required>
+      <label>Safe to eat until <input name="safeUntil" type="datetime-local" required></label>
+      <button>List food</button>
+    </form>
+    <h2>All listings</h2>
+    <table id="allTable"></table>
+  </section>
+
+  <section id="claims" class="tab"><table id="claimTable"></table></section>
+
+  <section id="impact" class="tab">
+    <p class="hint">Collected food counts as diverted from waste. Listings that expired unclaimed count as wasted.</p>
+    <table id="impactTable"></table>
+  </section>
+
+  <section id="people" class="tab">
+    <h2>Add a donor</h2>
+    <form data-kind="donors"><input name="name" placeholder="Name" required><input name="email" type="email" placeholder="Email" required><input name="phone" placeholder="Phone"><input name="address" placeholder="Address"><button>Add donor</button></form>
+    <table id="donorTable"></table>
+    <h2>Add an NGO</h2>
+    <form data-kind="ngos"><input name="name" placeholder="Name" required><input name="email" type="email" placeholder="Email" required><input name="phone" placeholder="Phone"><input name="address" placeholder="Address"><button>Add NGO</button></form>
+    <table id="ngoTable"></table>
+  </section>
+</main>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

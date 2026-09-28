@@ -1,0 +1,32 @@
+:root{--ink:#1c2b24;--paper:#f2f5f1;--panel:#fff;--line:#d0d9d2;--leaf:#2f7d4f;--beet:#b0326b;--muted:#5b6b62}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Georgia,"Times New Roman",serif}
+header{background:var(--ink);color:#fff;padding:22px 32px 0}
+header h1{margin:0;font:700 30px/1.1 Georgia,serif;letter-spacing:-.01em}
+header p{margin:2px 0 16px;color:#a9c2b3;font-style:italic}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button{background:transparent;color:#c3d6ca;border:0;padding:10px 18px;font:inherit;cursor:pointer;border-radius:6px 6px 0 0}
+nav button.on{background:var(--paper);color:var(--ink);font-weight:700}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+main{max-width:1100px;margin:0 auto;padding:24px 32px 60px}
+.tab{display:none}.tab.on{display:block}
+h2{font-size:18px;margin:28px 0 10px}
+form,.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+label{display:flex;align-items:center;gap:6px}
+input,select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);font:inherit;min-width:140px}
+button{padding:8px 16px;border:0;border-radius:6px;background:var(--leaf);color:#fff;font:inherit;cursor:pointer}
+button:hover{background:#256640}button:disabled{background:#9db5a5;cursor:default}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);display:block;overflow-x:auto}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:#e4ebe6}
+td button{padding:4px 10px;font-size:13px;margin-right:4px}
+td button.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.tag{padding:2px 9px;border-radius:10px;background:#e4ebe6;font-size:13px}
+.tag.AVAILABLE,.tag.COLLECTED{background:#d4ecdd;color:#175a35}
+.tag.CLAIMED,.tag.ACTIVE{background:#dfe6f5;color:#243a7a}
+.tag.EXPIRED,.tag.CANCELLED{background:#f4dbe6;color:#8a2050}
+.left{font-weight:700;color:var(--leaf)}.left.urgent{color:var(--beet)}
+.hint{color:var(--muted)}.pager{justify-content:center}
+#toast{position:fixed;right:20px;bottom:20px;padding:12px 18px;background:var(--leaf);color:#fff;border-radius:6px;opacity:0;transition:opacity .2s;pointer-events:none;max-width:380px}
+#toast.show{opacity:1}#toast.err{background:var(--beet)}
+@media(max-width:640px){main,header{padding-left:16px;padding-right:16px}}
